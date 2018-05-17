@@ -1,6 +1,9 @@
 package com.productservicejava;
 
+import com.productservicejava.models.Product;
+
 import javax.ws.rs.Path;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.GET;
 import javax.ws.rs.Produces;
@@ -10,8 +13,17 @@ import java.util.Date;
 public class HelloService {
 
 	@GET
-	@Produces("text/plain")
-	public Response doGet() {
-		return Response.ok("method doGet invoked " + new Date()).build();
-	}
+	@Produces(MediaType.APPLICATION_JSON)
+    public Product doGet(){
+	   Product product = new Product(1, "bokhylla", "www");
+
+	   return product;
+
+    }
+
+//	public Response doGet() {
+//		return Response.ok("här är en produkt").build();
+//	}
+
+
 }
