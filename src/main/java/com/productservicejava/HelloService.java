@@ -2,6 +2,7 @@ package com.productservicejava;
 
 import com.productservicejava.models.Product;
 import com.productservicejava.repository.ProductRepo;
+import com.productservicejava.repository.ProductRepository;
 
 import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
@@ -21,11 +22,10 @@ public class HelloService {
 
 	   return productRepo.getProducts();
 
+//        ProductRepository productDB = new ProductRepository();
+//
+//        return productDB.getProducts();
+
     }
-
-//	public Response doGet() {
-//		return Response.ok("här är en produkt").build();
-//	}
-
 
 }
