@@ -8,4 +8,9 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8080:8080"
+  db:
+    image: testproductservicedb
+    build:
+      context: .
+      dockerfile: DockerfileDb
 
