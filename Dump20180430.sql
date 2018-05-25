@@ -28,14 +28,14 @@ USE productdb;
 
 DROP TABLE IF EXISTS `Products`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `Products` (
   `ProductId` int(11) NOT NULL AUTO_INCREMENT,
   `ProductName` varchar(45) DEFAULT NULL,
   `ProductImageUrl` varchar(45) DEFAULT NULL,
   `LastUpdated` datetime DEFAULT NULL,
   PRIMARY KEY (`ProductId`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -57,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-04-30 13:26:21
+-- Dump compçleted on 2018-04-30 13:26:21
