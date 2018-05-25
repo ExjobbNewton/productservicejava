@@ -18,13 +18,13 @@ public class HelloService {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
     public List<Product> doGet(){
-        ProductRepo productRepo = ProductRepo.getInstance();
-
-	   return productRepo.getProducts();
-
-//        ProductRepository productDB = new ProductRepository();
+//        ProductRepo productRepo = ProductRepo.getInstance();
 //
-//        return productDB.getProducts();
+//	   return productRepo.getProducts();
+
+        ProductRepository productDB = new ProductRepository();
+
+        return productDB.getProducts();
 
     }
 
