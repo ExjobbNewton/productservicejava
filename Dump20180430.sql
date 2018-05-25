@@ -15,9 +15,6 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
---
--- Table structure for table `Products`
---
 CREATE USER 'dbuser'@'%' IDENTIFIED BY 'dbpassword';
 
 GRANT ALL ON productdb.* TO 'dbuser'@'%';
@@ -25,16 +22,20 @@ GRANT ALL ON productdb.* TO 'dbuser'@'%';
 CREATE DATABASE productdb;
 USE productdb;
 
+--
+-- Table structure for table `Products`
+--
+
 DROP TABLE IF EXISTS `Products`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+SET character_set_client = utf8mb4 ;
 CREATE TABLE `Products` (
   `ProductId` int(11) NOT NULL AUTO_INCREMENT,
   `ProductName` varchar(45) DEFAULT NULL,
   `ProductImageUrl` varchar(45) DEFAULT NULL,
   `LastUpdated` datetime DEFAULT NULL,
   PRIMARY KEY (`ProductId`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
