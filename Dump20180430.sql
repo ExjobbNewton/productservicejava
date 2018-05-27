@@ -33,7 +33,6 @@ CREATE TABLE `Products` (
   `ProductId` int(11) NOT NULL AUTO_INCREMENT,
   `ProductName` varchar(45) DEFAULT NULL,
   `ProductImageUrl` varchar(45) DEFAULT NULL,
-  `LastUpdated` datetime DEFAULT NULL,
   PRIMARY KEY (`ProductId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -44,7 +43,7 @@ CREATE TABLE `Products` (
 
 LOCK TABLES `Products` WRITE;
 /*!40000 ALTER TABLE `Products` DISABLE KEYS */;
-INSERT INTO `Products` VALUES (1,'Plastic cup','plasticcup.se','2018-10-02 00:00:00'),(2,'Wood cup','woodcup.se','2018-04-01 00:00:00'),(3,'Porcelain cup','porcelaincup.se','2017-12-05 00:00:00'),(4,'Bonemold cup','bonemoldcup.se','2017-12-05 00:00:00');
+INSERT INTO `Products` VALUES (1,'Plastic cup','plasticcup.se'),(2,'Wood cup','woodcup.se'),(3,'Porcelain cup','porcelaincup.se'),(4,'Bonemold cup','bonemoldcup.se');
 /*!40000 ALTER TABLE `Products` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
