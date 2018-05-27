@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   productservicejava:
-    image: productservicejava
+    image: annafock/productservicejava
     build:
       context: .
       dockerfile: Dockerfile
@@ -11,7 +11,7 @@ services:
     ports:
       - "8080:8080"
   db:
-    image: productservicedb
+    image: annafock/productservicedb
     build:
       context: .
       dockerfile: DockerfileDb
