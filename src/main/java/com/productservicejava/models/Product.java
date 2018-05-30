@@ -5,17 +5,22 @@
  */
 package com.productservicejava.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import org.hibernate.Hibernate;
+
+import javax.persistence.*;
 import java.io.Serializable;
 
-@Entity
+/**
+ * Product.java
+ * This class maps to a table in database.
+ * @author annafock
+ *
+ */
 
+@Entity
+@Table(name = "Products")
 public class Product implements Serializable{
-    
-    @Id
-    @GeneratedValue
+
     int id;
     String productName;
     String productImageUrl;
@@ -28,6 +33,9 @@ public class Product implements Serializable{
         this.productImageUrl = productImageUrl; 
     }
 
+    @Id
+    @Column(name = "ProductId")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getId() {
         return id;
     }

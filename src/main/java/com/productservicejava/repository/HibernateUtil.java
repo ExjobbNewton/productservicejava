@@ -6,36 +6,62 @@
 package com.productservicejava.repository;
 
 import org.hibernate.*;
+import org.hibernate.boot.Metadata;
+import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+import org.jboss.logging.Logger;
 
 /**
  * Hibernate Utility class with a convenient method to get Session Factory
  * object.
  *
- * @author louiseahokas
+ * @author annafock
  */
 
-public class HibernateUtil 
-{
+public class HibernateUtil {
 
+    private static StandardServiceRegistry registry;
     private static SessionFactory sessionFactory;
 
-    public static SessionFactory getSessionFactory()
-    {
-        if(sessionFactory== null)
-        {
-            Configuration configuration= new Configuration().configure();
-            StandardServiceRegistry registry= new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
-            sessionFactory= configuration.buildSessionFactory(registry);
+    public static SessionFactory getSessionFactory() {
+        if (sessionFactory == null) {
+
+            Logger logger = Logger.getLogger("Mylogger");
+            logger.info("Trying to create a test connection with database");
+            Configuration configuration = new Configuration().configure();
+            configuration.configure();
+
+            try {
+                // Create registry
+                registry = new StandardServiceRegistryBuilder()
+                        .configure() //Configure settings from hibernate.cfg.xml
+                        .build();
+
+                // Create MetadataSources
+                MetadataSources sources = new MetadataSources(registry);
+
+                // Create Metadata
+                Metadata metadata = sources.getMetadataBuilder().build();
+
+                // Create SessionFactory
+                sessionFactory = metadata.getSessionFactoryBuilder().build();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                if (registry != null) {
+                    StandardServiceRegistryBuilder.destroy(registry);
+                }
+            }
         }
         return sessionFactory;
     }
 
-    public static Session getSession(){
-        Session session= getSessionFactory().openSession();
-        return session;
-
+    public static void shutdown() {
+        if (registry != null) {
+            StandardServiceRegistryBuilder.destroy(registry);
+        }
     }
 }
+

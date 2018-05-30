@@ -1,6 +1,7 @@
 package com.productservicejava;
 
 import com.productservicejava.models.Product;
+import com.productservicejava.models.ProductsEntity;
 import com.productservicejava.repository.ProductRepo;
 import com.productservicejava.repository.ProductRepository;
 
@@ -14,10 +15,9 @@ import java.util.List;
 
 @Path("/greet")
 public class HelloService {
-
-	@GET
-	@Produces(MediaType.APPLICATION_JSON)
-    public List<Product> doGet(){
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<ProductsEntity> doGet(){
 //        ProductRepo productRepo = ProductRepo.getInstance();
 //
 //	   return productRepo.getProducts();
